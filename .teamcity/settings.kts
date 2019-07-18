@@ -8,6 +8,8 @@ project{
 object HelloWorld : BuildType({
     name = "Hellow world"
     steps {
-        scriptContent = "echo 'Hello world!'"
+        script {
+            scriptContent = "echo 'Hello world!'"
+        }
     }
 })

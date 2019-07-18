@@ -1,23 +1,10 @@
-import jetbrains.buildServer.configs.kotlin.v2018_2.*
-
-package _Self.buildTypes
-
-object Build : BuildType({
-    name = "BuildMain"
-
-    vcs {
-        root(DslContext.settingsRoot)
-    }
-
+version = "2018.1"
+project{
+    buildType(HelloWorld)
+}
+object HelloWorld : BuildType({
+    name = "Hellow world"
     steps {
-        script {
-            name = "command-line-main"
-            scriptContent = "echo command-line-main-step"
-        }
-    }
-
-    triggers {
-        vcs {
-        }
+        scriptContent = "echo 'Hello world!'"
     }
 })

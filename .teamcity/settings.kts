@@ -13,3 +13,12 @@ object HelloWorld : BuildType({
         }
     }
 })
+
+object HelloWorld2 : BuildType({
+    name = "Hellow world 2"
+    steps {
+        script {
+            scriptContent = "echo 'Hello world! 2'"
+        }
+    }
+})

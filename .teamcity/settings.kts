@@ -5,7 +5,7 @@ version = "2018.2"
 project{
     vcsRoot {
         GitVcsRoot{
-            d("KotlinTestVcs")
+            id("KotlinTestVcs")
             name = "kotlin_test_vcs"
             url = "https://github.com/GribovAlexander/test-slave.git"
             authMethod = password {

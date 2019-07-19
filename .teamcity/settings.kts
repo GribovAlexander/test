@@ -1,7 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.*
 
-version = "2018.1"
+version = "2018.2"
 project{
     buildType(HelloWorld)
 }

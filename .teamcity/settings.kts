@@ -4,15 +4,16 @@ import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.*
 version = "2018.2"
 project{
     vcsRoot {
-        GitVcsRoot{
+        GetVcsRoot({
             id("KotlinTestVcs")
             name = "kotlin_test_vcs"
             url = "https://github.com/GribovAlexander/test-slave.git"
+            branchSpec = "+:refs/heads/*"
             authMethod = password {
                 userName = "GribovAlexander"
                 password = "credentialsJSON:9fe5000e-f6ce-4c30-8a3e-b95501181cec"
             }
-        }
+        })
     }
     buildType {
         id ("HelloWorld")

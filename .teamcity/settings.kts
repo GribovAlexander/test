@@ -36,5 +36,15 @@ project{
             }
         }
     }
+
+    buildType {
+        id ("HelloWorld2")
+        name="Hello2"
+        steps {
+            script {
+                scriptContent="echo HelloW2"
+            }
+        }
+    }
 }
 

@@ -2,6 +2,7 @@ package patches.templates
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.Template
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -12,5 +13,13 @@ in the root project, and delete the patch script.
 create(DslContext.projectId, Template({
     id("KotlinTestTemplate")
     name = "kotlin-test-template"
+
+    steps {
+        script {
+            name = "cmd-ln-templ"
+            id = "RUNNER_809"
+            scriptContent = "run"
+        }
+    }
 }))
 

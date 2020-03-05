@@ -1,6 +1,8 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.powerShell
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -16,5 +18,21 @@ changeBuildType(RelativeId("HelloWorld")) {
 
     vcs {
         add(RelativeId("KotlinTestVcs"))
+    }
+
+    expectSteps {
+        script {
+            scriptContent = "echo HelloW"
+        }
+    }
+    steps {
+        insert(0) {
+            powerShell {
+                scriptMode = script {
+                    content = "write-host 1"
+                }
+            }
+        }
+        items.removeAt(1)
     }
 }

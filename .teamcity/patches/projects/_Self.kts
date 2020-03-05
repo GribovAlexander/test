@@ -14,4 +14,16 @@ changeProject(DslContext.projectId) {
         "Unexpected archived: '$archived'"
     }
     archived = true
+
+    features {
+        add {
+            feature {
+                type = "JetBrains.SharedResources"
+                id = "PROJECT_EXT_24"
+                param("values", "testValue")
+                param("name", "TestRes")
+                param("type", "custom")
+            }
+        }
+    }
 }

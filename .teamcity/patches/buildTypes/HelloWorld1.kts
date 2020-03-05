@@ -1,6 +1,8 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.powerShell
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -13,4 +15,20 @@ changeBuildType(RelativeId("HelloWorld1")) {
         "Unexpected paused: '$paused'"
     }
     paused = true
+
+    expectSteps {
+        script {
+            scriptContent = "echo HelloW1"
+        }
+    }
+    steps {
+        insert(0) {
+            powerShell {
+                scriptMode = script {
+                    content = "Write-Host 11"
+                }
+            }
+        }
+        items.removeAt(1)
+    }
 }
